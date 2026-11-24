@@ -56,6 +56,9 @@ jobs:
       - name: Build BeingDB
         if: steps.cache.outputs.cache-hit != 'true'
         working-directory: ${{ runner.temp }}/beingdb
+        env:
+          # setup-ocaml creates a local switch in the workspace, not in this directory.
+          OPAMSWITCH: ${{ github.workspace }}
         run: |
           opam install -y . --deps-only
           opam exec -- dune build --release bin/main.exe
