@@ -1,0 +1,49 @@
+{
+  "title": "Bookshop chatbot",
+  "tagline": "Ask about the books, authors, prices and stock in our shop",
+  "topic": "a bookshop's catalogue: its books, their authors, genres, publication years, page counts, prices and stock, and the authors' birth years and countries",
+  "greeting": "Hi! I can answer questions about the books in our shop: who wrote them, when, their genre, price and whether they are in stock.",
+  "placeholder": "Ask about our books…",
+  "suggestions": [
+    "Which books did Jane Austen write?",
+    "What science fiction books do you have?",
+    "Which books are sold out?",
+    "Which books cost less than £6?",
+    "How many books by Charles Dickens do you sell?",
+    "Which Irish authors do you stock?",
+    "What is the longest book in the shop?",
+    "Which books were published before 1850?"
+  ],
+  "examples": [
+    { "question": "Who wrote Moby Dick?", "query": "find Author\nwhere\n  written_by(moby_dick, Author)" },
+    { "question": "What did Lewis Carroll write?", "query": "find Book\nwhere\n  written_by(Book, lewis_carroll)" },
+    { "question": "Which mystery books do you have?", "query": "find Book\nwhere\n  genre(Book, mystery)" },
+    {
+      "question": "Which books came out in the 1870s?",
+      "query": "find Book, Year\nwhere\n  published_in(Book, Year)\n  Year between @1870 and @1879\norder by Year ascending"
+    },
+    {
+      "question": "List Charles Dickens's books with their price, cheapest first.",
+      "query": "find Book, Pounds\nwhere\n  written_by(Book, charles_dickens)\n  price(Book, Pounds)\norder by Pounds ascending"
+    },
+    {
+      "question": "Which books by English authors are in stock?",
+      "query": "find Book, Copies\nwhere\n  written_by(Book, Author)\n  nationality(Author, england)\n  in_stock(Book, Copies)\n  Copies > 0"
+    },
+    {
+      "question": "Which authors born before 1850 are not from England?",
+      "query": "find Author\nwhere\n  born_year(Author, Year)\n  Year < @1850\n  not\n    nationality(Author, england)"
+    },
+    { "question": "How many adventure books do you have?", "query": "find count(Book)\nwhere\n  genre(Book, adventure)" },
+    {
+      "question": "How many books does each author have?",
+      "query": "find Author, count(Book)\nwhere\n  written_by(Book, Author)\norder by count(Book) descending"
+    },
+    { "question": "What is the shortest book?", "query": "find Book, Pages\nwhere\n  pages(Book, Pages)\norder by Pages ascending\nlimit 1" },
+    { "question": "How many copies do you have in total?", "query": "find sum(Copies)\nwhere\n  in_stock(Book, Copies)" },
+    { "question": "Which books have \"world\" in the title?", "query": "find Book\nwhere\n  written_by(Book, _)\n  Book contains \"world\"" },
+    { "question": "Do you sell e-books?", "unsupported": "No predicate records formats." },
+    { "question": "Who is the publisher of Emma?", "unsupported": "No predicate records publishers." },
+    { "question": "How much would three copies of Dracula cost?", "unsupported": "Queries cannot do arithmetic." }
+  ]
+}

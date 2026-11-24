@@ -1,0 +1,34 @@
+%! genre(Book, Genre)
+% A genre the shop files a book under. A book can have more than one.
+genre(pride_and_prejudice, romance).
+genre(emma, romance).
+genre(persuasion, romance).
+genre(jane_eyre, gothic).
+genre(jane_eyre, romance).
+genre(wuthering_heights, gothic).
+genre(frankenstein, science_fiction).
+genre(frankenstein, gothic).
+genre(dracula, horror).
+genre(dracula, gothic).
+genre(the_time_machine, science_fiction).
+genre(the_war_of_the_worlds, science_fiction).
+genre(twenty_thousand_leagues_under_the_seas, adventure).
+genre(twenty_thousand_leagues_under_the_seas, science_fiction).
+genre(around_the_world_in_eighty_days, adventure).
+genre(treasure_island, adventure).
+genre(kidnapped, adventure).
+genre(a_study_in_scarlet, mystery).
+genre(the_hound_of_the_baskervilles, mystery).
+genre(the_moonstone, mystery).
+genre(great_expectations, literary_fiction).
+genre(a_tale_of_two_cities, historical_fiction).
+genre(oliver_twist, literary_fiction).
+genre(middlemarch, literary_fiction).
+genre(gulliver_s_travels, satire).
+genre(gulliver_s_travels, adventure).
+genre(alice_s_adventures_in_wonderland, fantasy).
+genre(through_the_looking_glass, fantasy).
+genre(the_picture_of_dorian_gray, gothic).
+genre(little_women, literary_fiction).
+genre(the_adventures_of_tom_sawyer, adventure).
+genre(moby_dick, adventure).

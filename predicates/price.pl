@@ -1,0 +1,29 @@
+%! price(Book, Pounds)
+% The shop's price for a book, in pounds sterling.
+price(pride_and_prejudice, 7.99).
+price(emma, 7.99).
+price(persuasion, 6.99).
+price(jane_eyre, 8.99).
+price(wuthering_heights, 7.99).
+price(frankenstein, 6.99).
+price(dracula, 7.99).
+price(the_time_machine, 5.99).
+price(the_war_of_the_worlds, 6.99).
+price(twenty_thousand_leagues_under_the_seas, 8.49).
+price(around_the_world_in_eighty_days, 6.99).
+price(treasure_island, 5.99).
+price(kidnapped, 5.99).
+price(a_study_in_scarlet, 5.99).
+price(the_hound_of_the_baskervilles, 6.99).
+price(the_moonstone, 8.99).
+price(great_expectations, 8.99).
+price(a_tale_of_two_cities, 7.99).
+price(oliver_twist, 7.99).
+price(middlemarch, 9.99).
+price(gulliver_s_travels, 6.99).
+price(alice_s_adventures_in_wonderland, 5.99).
+price(through_the_looking_glass, 5.99).
+price(the_picture_of_dorian_gray, 6.99).
+price(little_women, 8.99).
+price(the_adventures_of_tom_sawyer, 6.99).
+price(moby_dick, 9.99).

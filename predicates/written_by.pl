@@ -1,0 +1,29 @@
+%! written_by(Book, Author)
+% Relates a book to the author who wrote it.
+written_by(pride_and_prejudice, jane_austen).
+written_by(emma, jane_austen).
+written_by(persuasion, jane_austen).
+written_by(jane_eyre, charlotte_bronte).
+written_by(wuthering_heights, emily_bronte).
+written_by(frankenstein, mary_shelley).
+written_by(dracula, bram_stoker).
+written_by(the_time_machine, h_g_wells).
+written_by(the_war_of_the_worlds, h_g_wells).
+written_by(twenty_thousand_leagues_under_the_seas, jules_verne).
+written_by(around_the_world_in_eighty_days, jules_verne).
+written_by(treasure_island, robert_louis_stevenson).
+written_by(kidnapped, robert_louis_stevenson).
+written_by(a_study_in_scarlet, arthur_conan_doyle).
+written_by(the_hound_of_the_baskervilles, arthur_conan_doyle).
+written_by(the_moonstone, wilkie_collins).
+written_by(great_expectations, charles_dickens).
+written_by(a_tale_of_two_cities, charles_dickens).
+written_by(oliver_twist, charles_dickens).
+written_by(middlemarch, george_eliot).
+written_by(gulliver_s_travels, jonathan_swift).
+written_by(alice_s_adventures_in_wonderland, lewis_carroll).
+written_by(through_the_looking_glass, lewis_carroll).
+written_by(the_picture_of_dorian_gray, oscar_wilde).
+written_by(little_women, louisa_may_alcott).
+written_by(the_adventures_of_tom_sawyer, mark_twain).
+written_by(moby_dick, herman_melville).

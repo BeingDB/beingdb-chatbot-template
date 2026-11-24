@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chatbot</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="src/chat.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div id="logo" class="logo" aria-hidden="true"></div>
+      <div>
+        <h1 id="title"></h1>
+        <p id="tagline" class="tagline"></p>
+      </div>
+    </div>
+    <span id="status-pill" class="pill">Starting…</span>
+    <button id="menu-button" class="icon-button" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </header>
+
+  <aside id="menu" class="menu" hidden>
+    <div class="menu-head">
+      <h2>Menu</h2>
+      <button id="menu-close" class="icon-button" aria-label="Close menu">&times;</button>
+    </div>
+    <section>
+      <h3>About</h3>
+      <p>This chatbot answers from a set of facts. Everything runs in your browser:
+        a local language model turns your question into a database query, and
+        <a href="https://github.com/beingdb/beingdb" target="_blank" rel="noopener">BeingDB</a> answers it from the facts.
+        The answers come from the facts, not from the model, and nothing you type leaves your computer.</p>
+    </section>
+    <section>
+      <h3>Status</h3>
+      <p id="state" class="state">Loading BeingDB…</p>
+    </section>
+    <section>
+      <h3><label for="model-select">Language model</label></h3>
+      <select id="model-select" disabled></select>
+      <p id="model-note" class="muted"></p>
+    </section>
+    <section>
+      <label class="switch"><input type="checkbox" id="show-tech"> Show technical details on answers</label>
+      <p class="muted">The generated query, BeingDB's verdict, repairs, timings and raw response.</p>
+      <button id="clear" class="secondary">Clear conversation</button>
+    </section>
+    <section>
+      <details><summary>Model instructions</summary><pre id="prompt"></pre></details>
+      <details><summary>Log</summary><pre id="log" class="log"></pre></details>
+    </section>
+    <section>
+      <p><a href="https://github.com/beingdb/beingdb-chatbot-template" target="_blank" rel="noopener">Make your own chatbot like this</a></p>
+    </section>
+  </aside>
+  <div id="scrim" class="scrim" hidden></div>
+
+  <main id="chat" class="chat" aria-live="polite"></main>
+
+  <form id="composer" class="composer">
+    <textarea id="question" rows="1" aria-label="Your question" disabled></textarea>
+    <button id="ask" class="send" type="submit" aria-label="Send" disabled>
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 20l18-8L3 4v6l12 2-12 2z" fill="currentColor"/></svg>
+    </button>
+  </form>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+%! pages(Book, Pages)
+% The number of pages in the edition the shop sells.
+pages(pride_and_prejudice, 432).
+pages(emma, 474).
+pages(persuasion, 249).
+pages(jane_eyre, 532).
+pages(wuthering_heights, 416).
+pages(frankenstein, 280).
+pages(dracula, 418).
+pages(the_time_machine, 118).
+pages(the_war_of_the_worlds, 192).
+pages(twenty_thousand_leagues_under_the_seas, 426).
+pages(around_the_world_in_eighty_days, 256).
+pages(treasure_island, 292).
+pages(kidnapped, 288).
+pages(a_study_in_scarlet, 176).
+pages(the_hound_of_the_baskervilles, 256).
+pages(the_moonstone, 528).
+pages(great_expectations, 544).
+pages(a_tale_of_two_cities, 489).
+pages(oliver_twist, 608).
+pages(middlemarch, 880).
+pages(gulliver_s_travels, 336).
+pages(alice_s_adventures_in_wonderland, 192).
+pages(through_the_looking_glass, 224).
+pages(the_picture_of_dorian_gray, 272).
+pages(little_women, 759).
+pages(the_adventures_of_tom_sawyer, 274).
+pages(moby_dick, 720).

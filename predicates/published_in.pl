@@ -1,0 +1,29 @@
+%! published_in(Book, Year)
+% The year a book was first published.
+published_in(pride_and_prejudice, @1813).
+published_in(emma, @1815).
+published_in(persuasion, @1817).
+published_in(jane_eyre, @1847).
+published_in(wuthering_heights, @1847).
+published_in(frankenstein, @1818).
+published_in(dracula, @1897).
+published_in(the_time_machine, @1895).
+published_in(the_war_of_the_worlds, @1898).
+published_in(twenty_thousand_leagues_under_the_seas, @1870).
+published_in(around_the_world_in_eighty_days, @1872).
+published_in(treasure_island, @1883).
+published_in(kidnapped, @1886).
+published_in(a_study_in_scarlet, @1887).
+published_in(the_hound_of_the_baskervilles, @1902).
+published_in(the_moonstone, @1868).
+published_in(great_expectations, @1861).
+published_in(a_tale_of_two_cities, @1859).
+published_in(oliver_twist, @1838).
+published_in(middlemarch, @1871).
+published_in(gulliver_s_travels, @1726).
+published_in(alice_s_adventures_in_wonderland, @1865).
+published_in(through_the_looking_glass, @1871).
+published_in(the_picture_of_dorian_gray, @1890).
+published_in(little_women, @1868).
+published_in(the_adventures_of_tom_sawyer, @1876).
+published_in(moby_dick, @1851).

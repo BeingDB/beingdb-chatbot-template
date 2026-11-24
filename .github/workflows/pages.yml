@@ -1,0 +1,97 @@
+# Build the chatbot from predicates/ and chatbot.json and publish it on GitHub Pages.
+#
+# One-time setting: Settings > Pages > Build and deployment > Source: "GitHub Actions".
+#
+# The facts are compiled with BeingDB, built here from the commit that the
+# BeingDB WASM runtime in runtime/ was built from (runtime/runtime.json), so the
+# two always match. The first run builds BeingDB (about 10 minutes); later runs
+# reuse it from the cache. Pull requests build and check only.
+name: Chatbot site (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Find the BeingDB commit the runtime was built from
+        id: beingdb
+        run: echo "commit=$(jq -r .beingdb.commit runtime/runtime.json)" >> "$GITHUB_OUTPUT"
+
+      - name: Restore BeingDB from the cache
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.beingdb/bin
+          key: beingdb-${{ steps.beingdb.outputs.commit }}-ubuntu-24.04
+
+      - name: Check out BeingDB
+        if: steps.cache.outputs.cache-hit != 'true'
+        env:
+          COMMIT: ${{ steps.beingdb.outputs.commit }}
+        run: |
+          git init -q "$RUNNER_TEMP/beingdb"
+          git -C "$RUNNER_TEMP/beingdb" fetch -q --depth 1 https://github.com/beingdb/beingdb.git "$COMMIT"
+          git -C "$RUNNER_TEMP/beingdb" checkout -q FETCH_HEAD
+
+      - if: steps.cache.outputs.cache-hit != 'true'
+        uses: ocaml/setup-ocaml@v3
+        with:
+          ocaml-compiler: 5.4.0
+
+      - name: Build BeingDB
+        if: steps.cache.outputs.cache-hit != 'true'
+        working-directory: ${{ runner.temp }}/beingdb
+        run: |
+          opam install -y . --deps-only
+          opam exec -- dune build --release bin/main.exe
+          mkdir -p ~/.beingdb/bin
+          cp _build/default/bin/main.exe ~/.beingdb/bin/beingdb
+
+      - name: Install BeingDB's system libraries
+        run: sudo apt-get install -y --no-install-recommends libev4 libgmp10 libzstd1
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - run: npm ci
+
+      - name: Build the site (compile the facts, check chatbot.json)
+        run: BEINGDB=~/.beingdb/bin/beingdb npm run build
+
+      - if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: actions/configure-pages@v6
+
+      - if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist/site
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

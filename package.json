@@ -1,0 +1,21 @@
+{
+  "name": "beingdb-chatbot-template",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Make a chatbot that answers from your own facts and runs entirely in the browser: a local WebLLM model writes the query, BeingDB WASM checks and answers it.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "serve": "node scripts/serve.mjs",
+    "start": "node scripts/build.mjs && node scripts/serve.mjs",
+    "test": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "@mlc-ai/web-llm": "^0.2.85"
+  }
+}

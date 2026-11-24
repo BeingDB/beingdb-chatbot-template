@@ -1,0 +1,29 @@
+%! in_stock(Book, Copies)
+% How many copies of a book the shop has in stock. 0 means sold out.
+in_stock(pride_and_prejudice, 12).
+in_stock(emma, 4).
+in_stock(persuasion, 0).
+in_stock(jane_eyre, 6).
+in_stock(wuthering_heights, 3).
+in_stock(frankenstein, 9).
+in_stock(dracula, 5).
+in_stock(the_time_machine, 7).
+in_stock(the_war_of_the_worlds, 8).
+in_stock(twenty_thousand_leagues_under_the_seas, 2).
+in_stock(around_the_world_in_eighty_days, 10).
+in_stock(treasure_island, 11).
+in_stock(kidnapped, 4).
+in_stock(a_study_in_scarlet, 5).
+in_stock(the_hound_of_the_baskervilles, 9).
+in_stock(the_moonstone, 1).
+in_stock(great_expectations, 7).
+in_stock(a_tale_of_two_cities, 3).
+in_stock(oliver_twist, 0).
+in_stock(middlemarch, 2).
+in_stock(gulliver_s_travels, 4).
+in_stock(alice_s_adventures_in_wonderland, 14).
+in_stock(through_the_looking_glass, 6).
+in_stock(the_picture_of_dorian_gray, 5).
+in_stock(little_women, 8).
+in_stock(the_adventures_of_tom_sawyer, 3).
+in_stock(moby_dick, 2).
